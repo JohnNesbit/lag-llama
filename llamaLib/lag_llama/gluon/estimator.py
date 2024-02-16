@@ -29,11 +29,11 @@ from gluonts.transform import (
 )
 
 from gluonts.torch.distributions import StudentTOutput
-from gluon_utils.gluon_ts_distributions.implicit_quantile_network import (
+from llamaLib import (
     ImplicitQuantileNetworkOutput,
 )
 
-from lag_llama.gluon.lightning_module import LagLlamaLightningModule
+from llamaLib import LagLlamaLightningModule
 
 PREDICTION_INPUT_NAMES = [
     "past_target",
