@@ -1,6 +1,6 @@
 from typing import Any, Dict, Iterable, Optional
 
-import pytorch_lightning as pl
+import lightning.pytorch as pl
 import torch
 from gluonts.core.component import validated
 from gluonts.dataset.common import Dataset
