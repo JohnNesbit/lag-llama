@@ -8,8 +8,8 @@ from gluonts.torch.modules.loss import DistributionLoss, NegativeLogLikelihood
 from gluonts.torch.util import take_last, repeat_along_dim
 from gluonts.itertools import prod
 
-from module import LagLlamaModel
-from aug import freq_mask, freq_mix
+from llamaLib.module import LagLlamaModel
+from llamaLib.aug import freq_mask, freq_mix
 
 
 class LagLlamaLightningModule(pl.LightningModule):
