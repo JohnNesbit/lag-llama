@@ -305,7 +305,42 @@ class LagLlamaEstimator(PyTorchLightningEstimator):
                 aug_rate=self.aug_rate,
                 model_kwargs=model_kwargs,
             )
-
+    def load_from_checkpoint(self, best_model_path) -> pl.LightningModule:
+        model_kwargs = {
+            "input_size": self.input_size,
+            "max_context_length": self.max_context_length,
+            "lags_seq": self.lags_seq,
+            "n_layer": self.n_layer,
+            "n_embd": self.n_embd,
+            "n_head": self.n_head,
+            "scaling": self.scaling,
+            "distr_output": self.distr_output,
+            "num_parallel_samples": self.num_parallel_samples,
+            "rope_scaling": self.rope_scaling,
+        }
+        if best_model_path is not None:
+            return LagLlamaLightningModule.load_from_checkpoint(
+                checkpoint_path=best_model_path,
+                loss=self.loss,
+                lr=self.lr,
+                weight_decay=self.weight_decay,
+                context_length=self.context_length,
+                prediction_length=self.prediction_length,
+                aug_prob=self.aug_prob,
+                aug_rate=self.aug_rate,
+                model_kwargs=model_kwargs,
+            )
+        else:
+            return LagLlamaLightningModule(
+                loss=self.loss,
+                lr=self.lr,
+                weight_decay=self.weight_decay,
+                context_length=self.context_length,
+                prediction_length=self.prediction_length,
+                aug_prob=self.aug_prob,
+                aug_rate=self.aug_rate,
+                model_kwargs=model_kwargs,
+            )
     def _create_instance_splitter(self, module: LagLlamaLightningModule, mode: str):
         assert mode in ["training", "validation", "test"]
 
