@@ -31,7 +31,7 @@ from gluonts.torch.model.estimator import PyTorchLightningEstimator
 from gluonts.torch.model.predictor import PyTorchPredictor
 from gluonts.torch.distributions import DistributionOutput, StudentTOutput
 
-from lightning_module import LagLlamaLightningModule
+from llamaLib.lightning_module import LagLlamaLightningModule
 
 PREDICTION_INPUT_NAMES = [
     "past_target",
