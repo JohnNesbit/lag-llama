@@ -3,8 +3,8 @@ import json
 import random
 import numpy as np
 import torch
-from pytorch_lightning.loggers import CSVLogger
-from pytorch_lightning.callbacks import ModelCheckpoint, DeviceStatsMonitor, EarlyStopping, LearningRateFinder, LearningRateMonitor
+from lightning.pytorch.loggers import CSVLogger
+from lightning.pytorch.callbacks import ModelCheckpoint, DeviceStatsMonitor, EarlyStopping, LearningRateFinder, LearningRateMonitor
 
 from pathlib import Path
 import pathlib
